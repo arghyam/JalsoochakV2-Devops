@@ -38,8 +38,12 @@ healthChecks:
 env: |
   - name: SERVER_PORT
     value: "8080"
-  - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI
-    value: "http://keycloak:80/keycloak/realms/jalsoochak-realm"
+  - name: RATE_LIMIT_ENABLED
+    value: "false"
+  - name: SPRING_DATA_REDIS_HOST
+    value: "redis"
+  - name: SPRING_DATA_REDIS_PORT
+    value: "6379"
   - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
     value: "http://servicediscovery:8761/eureka"
   - name: EUREKA_URL
