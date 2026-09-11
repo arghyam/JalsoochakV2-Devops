@@ -43,6 +43,8 @@ env: |
     value: "redis"
   - name: SPRING_DATA_REDIS_PORT
     value: "6379"
+  - name: KEYCLOAK_ISSUER_URI
+    value: "http://keycloak:80/keycloak/realms/jalsoochak-realm"
   - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
     value: "http://servicediscovery:8761/eureka"
   - name: EUREKA_URL
