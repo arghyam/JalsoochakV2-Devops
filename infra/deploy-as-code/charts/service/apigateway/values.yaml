@@ -19,26 +19,27 @@ ingress:
     - "message"
     - "scheme"
     - "analytics"
+    - "api/v1"
 # Init Containers Configs
 
 # Container Configs
 
 image:
   repository: "252649026375.dkr.ecr.ap-south-1.amazonaws.com/apigateway"
-  tag: "gateway-test-1"
-replicas: "1"
+  tag: "b693f88bd67ed8539c5ac0ea2764faf73a8dfeb8"
+replicas: "2"
 # tracing-enabled: true
-# healthChecks:
-#   enabled: true
-#   livenessProbePath: "/management-service/health"
-#   readinessProbePath: "/management-service/health"
+healthChecks:
+  enabled: true
+  livenessProbePath: "/actuator/health"
+  readinessProbePath: "/actuator/health"
 
 # Additional Container Envs
 env: |
   - name: SERVER_PORT
     value: "8080"
   - name: RATE_LIMIT_ENABLED
-    value: "false"
+    value: "true"
   - name: SPRING_DATA_REDIS_HOST
     value: "redis"
   - name: SPRING_DATA_REDIS_PORT
@@ -48,7 +49,7 @@ env: |
   - name: EUREKA_URL
     value: "http://servicediscovery:8761/eureka/"
   - name: EUREKA_ENABLED
-    value: "true"
+    value: "false"
   - name: TENANT_SERVICE_URI
     value: "http://tenant-service:8080"
   - name: USER_SERVICE_URI
